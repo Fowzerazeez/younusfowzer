@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block non-content assets from indexing
+Disallow: /app.js
+
+# Focus crawl budget on primary landing page
+Disallow: /comingsoon.html
+
+Sitemap: https://younusfowzer.com/sitemap.xml

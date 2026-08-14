@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://younusfowzer.com/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://younusfowzer.com/Younus-designstyle-cartoon-m.png</image:loc>
+      <image:title>Younus — Younus Fowzer, Product Manager and Software Engineer</image:title>
+      <image:caption>Official profile photo of Younus (Younus Fowzer), Sri Lanka</image:caption>
+    </image:image>
+  </url>
+</urlset>
