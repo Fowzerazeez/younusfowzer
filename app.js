@@ -1,4 +1,4 @@
-// app.js — Full 3D experience
+
 
 const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
 const scrollY = { current: 0, target: 0 };
@@ -18,7 +18,7 @@ window.addEventListener('scroll', () => {
   scrollY.target = window.scrollY;
 }, { passive: true });
 
-// === CUSTOM CURSOR (decorative — native OS cursor always stays visible) ===
+
 const CURSOR_INTERACTIVE = 'a, button, .btn, .btn-3d, .button, .skill, .portfolio-item, .contact-category, .contact-link, .card, .language-item, .nav-link, .accordion-button, input, textarea, select, label[for]';
 const isDesktopPointer = !prefersReducedMotion
   && window.matchMedia('(pointer: fine)').matches
@@ -122,7 +122,7 @@ function initCursorGlow() {
   updateGlow();
 }
 
-// === 3D CARD TILT ===
+
 function init3DTilt() {
   if (prefersReducedMotion || isTouch) return;
 
@@ -247,7 +247,7 @@ if (canvas && typeof THREE !== 'undefined') {
 
   scene.add(iconGroup);
 
-  // Lighting
+  
   const mouseLight = new THREE.PointLight(0xcc88ff, 2, 150);
   mouseLight.position.set(0, 0, 50);
   scene.add(mouseLight);
@@ -309,13 +309,12 @@ if (canvas && typeof THREE !== 'undefined') {
   });
 }
 
-// === GSAP 3D SCROLL ANIMATIONS ===
+
 function initScrollAnimations() {
   if (typeof gsap === 'undefined' || prefersReducedMotion) return;
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Hero entrance
   gsap.from('.site-header__avatar', { duration: 1, y: 30, opacity: 0, scale: 0.85, ease: 'power3.out' });
   gsap.from('.site-header__eyebrow', { duration: 1, y: 40, opacity: 0, rotateX: -30, transformOrigin: 'center top', ease: 'power3.out', delay: 0.1 });
   gsap.from('.site-header h1', { duration: 1.2, y: 60, opacity: 0, rotateX: -20, scale: 0.9, delay: 0.15, ease: 'power4.out' });
@@ -323,7 +322,6 @@ function initScrollAnimations() {
   gsap.from('.site-header__tagline--secondary', { duration: 1, y: 30, opacity: 0, delay: 0.55, ease: 'power3.out' });
   gsap.from('.navbar', { duration: 0.8, y: -30, opacity: 0, delay: 0.6, ease: 'power2.out' });
 
-  // Section panels — 3D fly-in
   gsap.utils.toArray('.section-panel').forEach((panel, i) => {
     gsap.from(panel, {
       scrollTrigger: { trigger: panel, start: 'top 88%', toggleActions: 'play none none none' },
@@ -338,7 +336,6 @@ function initScrollAnimations() {
     });
   });
 
-  // Section headings
   gsap.utils.toArray('section h2').forEach((heading) => {
     gsap.from(heading, {
       scrollTrigger: { trigger: heading, start: 'top 90%' },
@@ -350,7 +347,7 @@ function initScrollAnimations() {
     });
   });
 
-  // Skills — 3D stagger pop
+  
   gsap.from('.skill', {
     scrollTrigger: { trigger: '#skills', start: 'top 80%' },
     duration: 0.6,
@@ -362,7 +359,6 @@ function initScrollAnimations() {
     ease: 'back.out(1.4)',
   });
 
-  // Experience cards
   gsap.from('#experience .card', {
     scrollTrigger: { trigger: '#experience', start: 'top 80%' },
     duration: 0.9,
@@ -373,7 +369,6 @@ function initScrollAnimations() {
     ease: 'power3.out',
   });
 
-  // Language cards
   gsap.from('.language-item', {
     scrollTrigger: { trigger: '#languages', start: 'top 80%' },
     duration: 0.7,
@@ -384,7 +379,7 @@ function initScrollAnimations() {
     ease: 'power2.out',
   });
 
-  // Portfolio items
+  
   gsap.from('.portfolio-item', {
     scrollTrigger: { trigger: '#portfolio', start: 'top 80%' },
     duration: 0.9,
@@ -396,7 +391,7 @@ function initScrollAnimations() {
     ease: 'power3.out',
   });
 
-  // Contact categories
+ 
   gsap.from('.contact-category', {
     scrollTrigger: { trigger: '#contact', start: 'top 80%' },
     duration: 0.8,
@@ -407,7 +402,7 @@ function initScrollAnimations() {
     ease: 'power2.out',
   });
 
-  // Education list items
+ 
   gsap.from('#education li', {
     scrollTrigger: { trigger: '#education', start: 'top 80%' },
     duration: 0.5,
@@ -417,7 +412,6 @@ function initScrollAnimations() {
     ease: 'power2.out',
   });
 
-  // Parallax on header
   gsap.to('.site-header', {
     scrollTrigger: { trigger: '.site-header', start: 'top top', end: 'bottom top', scrub: 1 },
     y: 80,
@@ -425,8 +419,6 @@ function initScrollAnimations() {
     scale: 0.95,
   });
 }
-
-// === THEME-AWARE 3D LIGHTING ===
 function update3DTheme(isLight) {
   if (!threeObjects) return;
   const { scene, accentLight, accentLight2, iconGroup, iconSprites } = threeObjects;
@@ -459,8 +451,6 @@ function initDynamicIsland() {
   const mainThemeBtn = document.getElementById('theme-toggle-button');
 
   if (!island || !toggle || !panel) return;
-
-  // Mount on <html> so position:fixed stays viewport-locked while scrolling
   if (island.parentElement !== document.documentElement) {
     document.documentElement.appendChild(island);
   }
@@ -543,7 +533,6 @@ function initDynamicIsland() {
   }
 }
 
-// === CHATBASE — ensure bubble stays above page layers ===
 function initChatbotPin() {
   const boostBubble = () => {
     const bubble = document.getElementById('chatbase-bubble-button');
@@ -566,7 +555,7 @@ function initChatbotPin() {
   }, 500);
 }
 
-// === INIT ===
+
 function initMobileNav() {
   const navbarCollapse = document.getElementById('mainNavbar');
   if (!navbarCollapse) return;
