@@ -67,7 +67,6 @@
     <div class="countdown" id="countdown">Loading countdown...</div>
   </div>
 
-  <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
   <script>
     // 3D background
@@ -102,7 +101,6 @@
     animate();
   </script>
 
-  <!-- Countdown with Auto-Restart -->
   <script>
     const countdownElement = document.getElementById("countdown");
 
@@ -111,7 +109,7 @@
       let now = new Date();
 
       if (!target || now.getTime() > parseInt(target)) {
-        // Reset for new 29-day cycle
+   
         now.setDate(now.getDate() + 29);
         target = now.getTime();
         localStorage.setItem("under_construction_target", target);
@@ -127,7 +125,7 @@
       let distance = targetDate - now;
 
       if (distance <= 0) {
-        // Restart countdown from now + 29 days
+       
         const newTarget = new Date();
         newTarget.setDate(newTarget.getDate() + 29);
         targetDate = newTarget.getTime();
